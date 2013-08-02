@@ -49,5 +49,3 @@ window.timerman = (win = window) ->
 
   lib.install()
   lib
-
-  lib
