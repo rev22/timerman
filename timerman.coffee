@@ -2,8 +2,8 @@
 
 # See MIT-LICENSE for licensing information, and the absence of a warranty
 
-window.timerman = (window = window) ->
-  { setTimeout, setInterval, clearInterval, clearTimeout } = window
+window.timerman = (win = window) ->
+  { setTimeout, setInterval, clearInterval, clearTimeout } = win
   intervals = {}
   timeouts = {}
   lib =
@@ -40,12 +40,12 @@ window.timerman = (window = window) ->
     intervals: intervals
     timeouts: timeouts
     original: { setTimeout, setInterval, clearInterval, clearTimeout }
-    install: (window = window) ->
+    install: (w = win) ->
       for x in lib.original
-        window[x] = lib[x]
-    uninstall: (window = window) ->
+        w[x] = lib[x]
+    uninstall: (w = win) ->
       for x in lib.original
-        window[x] = lib.original[x]
+        w[x] = lib.original[x]
 
   lib.install()
   lib
