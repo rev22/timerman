@@ -34,6 +34,9 @@ window.timerman = (window = window) ->
       x
     clearAllTimeouts: -> lib.clearTimeout x for x of timeouts
     clearAllIntervals: -> lib.clearInterval x for x of intervals
+    clearAll: ->
+      lib.clearAllTimeouts()
+      lib.clearAllIntervals()
     intervals: intervals
     timeouts: timeouts
     original: { setTimeout, setInterval, clearInterval, clearTimeout }
