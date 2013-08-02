@@ -41,10 +41,10 @@ window.timerman = (win = window) ->
     timeouts: timeouts
     original: { setTimeout, setInterval, clearInterval, clearTimeout }
     install: (w = win) ->
-      for x in lib.original
+      for x of lib.original
         w[x] = lib[x]
     uninstall: (w = win) ->
-      for x in lib.original
+      for x of lib.original
         w[x] = lib.original[x]
 
   lib.install()
